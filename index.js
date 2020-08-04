@@ -22,5 +22,39 @@ function reverse(str) {
   return reverseArray.join('');
 }
 
+//function without commentary:
+function reverse(str) {
+  const strArray = str.split('');
+  const reverseArray = strArray.reverse();
+  return reverseArray.join('');
+}
+
 let myString = "Hi my name is Jacob"
 reverse(myString)
+
+
+// Andrei's solution:
+
+function andreiReverse(str) {
+  // check input
+  if(!str || str.length < 2 || typeof str !== 'string') {
+    return 'hmm that is not good';
+  }
+  //the create array, measure length of input, loop over it in reverse order and push to new array
+  const backwards = [];
+  const totalItems = str.length - 1;
+  for (let i = totalItems; i >= 0; i--) {
+    backwards.push(str[i]);
+  }
+  //join to return array
+  return backwards.join('');
+}
+
+// His builtin methods solution:
+//same operations as mine but with no variable declarations so it's cleaner and more readable.
+function reverse2(str) {
+  return str.split('').reverse().join('');
+}
+
+//using the new es6 syntax makes it even cleaner.
+const reverse3 = str => [...str].split('').reverse().join('');
